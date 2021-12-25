@@ -1,0 +1,217 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.11.2/css/all.css');
+
+:root{
+    --primary: #ff9944;
+    --secondary: #ee5555;
+    --light: #c7d6e5;
+    --medium: #282828;
+    --dark: #111111;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans";
+    display: flex;
+    height: 100vh;
+    color: var(--light);
+    background-color: var(--dark);
+}
+
+.game-container{
+    /* border: 2px solid var(--primary); */
+    margin: auto;
+    max-width: 43vw;
+    /* max-height: 80vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+.game-title{
+    text-align: center;
+}
+
+.moves{
+    padding: 1em 0;
+    color: var(--primary);
+    margin: auto;
+}
+
+.moves-counts{
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.game-board{
+    /* border: 2px solid var(--secondary); */
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    perspective: 1000px;
+}
+
+.card{
+    margin: 0.2vw;
+    /* width: calc(25% - 10px);
+    height: calc(33.333% - 10px); */
+    width: 10vw;
+    height: 20vh;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card:active{
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.card.flipped{
+    transform: rotateY(180deg);
+}
+
+.hidden{
+    animation-name: fadeout;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.hidden:hover{
+    cursor: default;
+}
+
+.hidden .card-front{
+    backface-visibility: visible;
+}
+
+.card-front, .card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--light);
+    /* I don't think this is necessary. This could be applied to .card-back only. In that case transform of card-front is also not necessary.*/
+    backface-visibility: hidden;
+}
+
+.card-front{
+    transform: rotateY(180deg);
+}
+
+.card-back{
+    /* backface-visibility: hidden; */
+}
+
+img {
+    /* width: 100px; */
+}
+
+.reset{
+    visibility: hidden;
+    text-align: center;
+}
+
+.reset.visible{
+    /* background-color: var(--light); */
+    color: var(--primary);
+    padding: 10px;
+    border-radius: 5px;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(48vw) translateY(40vh);
+    cursor: pointer;
+
+    transition: color .5s ease;
+}
+
+.reset.visible:hover{
+    color: var(--secondary);
+}
+
+.reset.visible:active{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(48vw) translateY(40vh);
+}
+
+.reset.visible:after{
+    content: "\f01e";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+    font-size: 5em;
+}
+
+.res{
+    background-color: white;
+}
+
+@media (max-width: 1024px){
+    .game-container{
+        /* background-color: red; */
+        max-width: 60vw;
+    }
+    
+    .card{
+        /* border: 2px solid red; */
+        margin: 0.4vw;
+        width: 13vw;
+        height: 15vw;
+    }
+
+    .res{
+        /* background-color: green; */
+    }
+}
+
+@media (max-width: 768px){
+    .res{
+        /* background-color: blue; */
+    }
+}
+
+@media (max-width: 600px){
+    .game-container{
+        /* background-color: red; */
+        max-width: 90vw;
+    }
+
+    .card{
+        /* border: 2px solid red; */
+        margin: 0.6vw;
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .res{
+        /* background-color: red; */
+    }
+}
+
+@keyframes fadeout {
+    from{
+        opacity: 1;
+    }
+
+    to{
+        opacity: 0;
+    }
+}
+
