@@ -1,5 +1,12 @@
 # Memory Card Game
 
+## Demo
+The game can be tested here: [Memory game](https://alchemistbg.github.io/memory-card-game/)
+
+## TODOs
+There are a lot of things that could be done in order to improve the game and the user experience.  
+There are some styling issues that could be fixed.
+
 ## Credits
 This project is based on this tutorial: [Memory Card Game - JavaScript Tutorial](https://www.youtube.com/watch?v=ZniVgo8U7ek)
 
