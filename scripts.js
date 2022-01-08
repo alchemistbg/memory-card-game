@@ -18,7 +18,11 @@ function setTime(){
 function calcTime() {
     let currentTime = Date.now();
     let diffTime = currentTime - initialTime;
-    setTimeHTML(diffTime);
+    if (diffTime > 3600000) {
+        document.location.reload();
+    } else {
+        setTimeHTML(diffTime);
+    }
 }
 
 function setTimeHTML(diffTime) {
@@ -111,6 +115,6 @@ function reloadGame() {
 cards.forEach((card) => {
     card.addEventListener("click", flipCard);
 
-    let randomOrder = Math.floor(Math.random() * cards.length);
-    card.style.order = randomOrder;
+    // let randomOrder = Math.floor(Math.random() * cards.length);
+    // card.style.order = randomOrder;
 });
