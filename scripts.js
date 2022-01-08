@@ -115,6 +115,6 @@ function reloadGame() {
 cards.forEach((card) => {
     card.addEventListener("click", flipCard);
 
-    // let randomOrder = Math.floor(Math.random() * cards.length);
-    // card.style.order = randomOrder;
+    let randomOrder = Math.floor(Math.random() * cards.length);
+    card.style.order = randomOrder;
 });
