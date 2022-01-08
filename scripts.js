@@ -6,6 +6,26 @@ let firstCard, secondCard;
 
 let moves = 0;
 
+
+let initialTime = Date.now();
+let interval;
+setTime();
+
+function setTime(){
+    interval = setInterval(calcTime, 1000);
+}
+
+function calcTime() {
+    let currentTime = Date.now();
+    let diffTime = currentTime - initialTime;
+    setTimeHTML(diffTime);
+}
+
+function setTimeHTML(diffTime) {
+    let diffTimeHTML = document.querySelector(".time-lapse");
+    diffTimeHTML.innerHTML = new Date(diffTime).toISOString().substring(14, 19);
+}
+
 function flipCard() {
     if (lockBoard) {
         return
@@ -76,6 +96,9 @@ function reloadGame() {
     if (invisibleCards.length === cards.length) {
         let resetBtn = document.querySelector(".reset");
         resetBtn.classList.add("visible");
+
+        clearInterval(interval);
+        interval = null;
 
         resetBtn.addEventListener("click", (e) => {
             e.preventDefault();
