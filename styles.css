@@ -168,13 +168,12 @@ img {
 
 @media (max-width: 1024px){
     .game-container{
-        /* background-color: red; */
         max-width: 60vw;
     }
     
     .card{
         /* border: 2px solid red; */
-        margin: 0.4vw;
+        margin: 0.3vw;
         width: 13vw;
         height: 15vw;
     }
@@ -191,20 +190,38 @@ img {
 }
 
 @media (max-width: 600px){
+    .stat{
+        /* display: block; */
+    }
+
     .game-container{
         /* background-color: red; */
+        padding: 0.5em;
         max-width: 90vw;
     }
 
     .card{
         /* border: 2px solid red; */
-        margin: 0.6vw;
-        width: 20vw;
-        height: 20vw;
+        margin: 0.3vw;
+        width: 19vw;
+        height: 19vw;
     }
 
     .reset{
         /* background-color: red; */
+    }
+}
+
+@media (max-width: 400px){
+    .stat{
+        display: block;
+        text-align: right;
+    }
+
+    .stat span{
+        display: inline-block;
+        color: green;
+        width: 3em;
     }
 }
 
